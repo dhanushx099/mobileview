@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Start Your Project — Enovexa Solutions</title>
+  <meta name="description" content="Tell Enovexa Solutions about your project — web development, digital marketing, software development, or event management. We'll get back to you within 24 hours." />
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <style>
+/* ============================================================
+   Enovexa Solutions — Start Your Project Page
+   Theme: White & Red (matches aichatbots.html design system)
+   ============================================================ */
+
+:root {
+  --red: #A50D25;
+  --red-dark: #86091d;
+  --white: #FFFFFF;
+  --off-white: #F9F9F9;
+  --light-gray: #F2F2F2;
+  --dark: #1A1A1A;
+  --muted: #6B6B6B;
+  --border: rgba(165, 13, 37, 0.14);
+  --heading: Arial, sans-serif;
+  --body: Arial, sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: #fff;
+  color: var(--dark);
+  font-family: var(--body);
+  font-size: 16px;
+  line-height: 1.65;
+  overflow-x: hidden;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 900;
+  padding: 0 5vw;
+  display: flex; align-items: center; justify-content: space-between;
+  background: #fff; height: 90px;
+  box-shadow:0 2px 16px rgba(0, 0, 0, 0.08);
+  border-bottom: 1.5px solid #FFFFFF;
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+nav.nav-dark {
+  background: #000;
+  border-bottom: 1.5px solid rgba(255,255,255,0.1);
+}
+nav.nav-dark .nav-portal { color: #fff; border-color: rgba(255,255,255,0.25); }
+nav.nav-dark .nav-portal:hover { background: rgba(255,255,255,0.08); border-color: var(--red); color: var(--red); }
+.logo { display: flex; align-items: center; text-decoration: none; }
+.logo img { height: 130px; width: 200px; object-fit: contain; display: block; }
+.logo .logo-dark { display: none; }
+nav.nav-dark .logo-light { display: none; }
+nav.nav-dark .logo-dark { display: block; }
+.nav-portal {
+  background: transparent; color: var(--dark);
+  border: 1px solid rgba(0,0,0,0.18);
+  padding: 9px 18px; font-family: var(--body); font-size: .84rem; font-weight: 600;
+  border-radius: 6px; cursor: pointer; transition: all .2s;
+  text-decoration: none; display: inline-block;
+}
+.nav-portal:hover { background: rgba(0,0,0,0.05); border-color: var(--red); color: var(--red); }
+
+/* ── SECTION COMMONS ── */
+.sec-label {
+  font-size: .7rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase;
+  color: var(--red); margin-bottom: 12px; display: flex; align-items: center; gap: 8px;
+}
+.sec-label::before { content: ''; width: 24px; height: 2px; background: var(--red); border-radius: 2px; }
+.sec-title {
+  font-family: var(--heading); font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  font-weight: 800; line-height: 1.1; letter-spacing: -1px; color: var(--dark);
+}
+.sec-title em { color: var(--red); font-style: normal; }
+.sec-sub { color: var(--muted); font-size: .88rem; max-width: 580px; margin-top: 14px; line-height: 1.8; }
+
+.fade-up { opacity: 0; transform: translateY(28px); transition: opacity .65s ease, transform .65s ease; }
+.fade-up.visible { opacity: 1; transform: none; }
+
+/* ── HERO ── */
+.hero {
+  background: #fff;
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+}
+.hero-grid {
+  display: grid; grid-template-columns: 1.15fr 0.85fr; align-items: stretch;
+  min-height: 560px; position: relative; z-index: 2;
+}
+.hero-left {
+  padding: 105px 3vw 60px 5vw;
+  display: flex; flex-direction: column; justify-content: flex-start;
+}
+
+/* Left */
+.hero-tag {
+  display: inline-flex; align-items: center; gap: 12px;
+  font-size: .78rem; font-weight: 800;
+  color: var(--red); letter-spacing: 2.5px; text-transform: uppercase; margin-bottom: 22px;
+}
+.hero-tag::before { content: ''; width: 28px; height: 3px; background: var(--red); border-radius: 2px; flex-shrink: 0; }
+.hero h1 {
+  font-family: var(--heading); font-size: clamp(2rem, 4vw, 3.4rem);
+  font-weight: 800; line-height: 1.08; letter-spacing: -1px; color: var(--dark);
+  margin-bottom: 22px;
+}
+.hero h1 em { color: var(--red); font-style: normal; }
+.hero-desc {
+  font-size: .95rem; color: var(--muted); max-width: 480px; line-height: 1.85; margin-bottom: 30px;
+}
+.hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+.btn-primary {
+  background: var(--red); color: #fff; padding: 15px 34px;
+  font-family: var(--body); font-size: .9rem; font-weight: 700; border: none;
+  border-radius: 8px; cursor: pointer; transition: all .2s; text-decoration: none;
+  display: inline-flex; align-items: center; gap: 8px;
+}
+.btn-primary:hover { background: var(--red-dark); transform: translateY(-2px); box-shadow: 0 10px 28px rgba(165,13,37,.3); }
+
+/* Right: inset image card */
+.hero-visual { position: relative; width: 100%; height: 100%; min-height: 420px; }
+.hv-main {
+  position: absolute; top: 140px; right: 55px; bottom: 90px; left: 55px;
+  overflow: hidden; border-radius: 20px; box-shadow: 0 20px 50px rgba(0,0,0,0.12);
+}
+.hv-main img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+@media (max-width: 900px) {
+  .hero-grid { grid-template-columns: 1fr; min-height: auto; }
+  .hero-left { padding: 130px 20px 40px; }
+  .hero-visual { height: 320px; min-height: 320px; }
+  .hv-main { top: 0; right: 20px; bottom: 20px; left: 20px; border-radius: 16px; }
+}
+
+/* ── FAQ / SERVICES Q&A ── */
+.faq-section { padding: 96px 5vw; background: var(--off-white); }
+.faq-list { max-width: 760px; margin: 52px auto 0; display: flex; flex-direction: column; gap: 10px; }
+.faq-item {
+  background: #fff; border: 1px solid var(--border); border-radius: 10px;
+  overflow: hidden; transition: border-color .25s, box-shadow .25s;
+}
+.faq-item:hover { border-color: rgba(165,13,37,0.3); box-shadow: 0 6px 16px rgba(0,0,0,0.05); }
+.faq-question {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  padding: 14px 18px; cursor: pointer; user-select: none;
+  font-family: var(--heading); font-weight: 700; font-size: .88rem; color: var(--dark);
+}
+.faq-question-text { display: flex; align-items: center; flex: 1; }
+.faq-plus {
+  flex-shrink: 0; width: 24px; height: 24px; border-radius: 50%;
+  background: rgba(165,13,37,0.08); color: var(--red);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 15px; font-weight: 700; transition: transform 0.3s, background 0.3s, color 0.3s;
+}
+.faq-item.open .faq-plus { transform: rotate(45deg); background: var(--red); color: #fff; }
+.faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.35s ease; padding: 0 18px; }
+.faq-item.open .faq-answer { padding: 0 18px 16px; }
+.faq-answer p { font-size: .82rem; color: var(--muted); line-height: 1.7; max-width: 700px; }
+
+/* ── FORM SECTION (same fields/logic as prior start-project form) ── */
+.form-section-wrap { padding: 96px 5vw 100px; background: #000; }
+
+/* Get In Touch section — dark theme overrides */
+.form-section-wrap .sec-title { color: #fff; }
+.form-section-wrap .sec-sub { color: rgba(255,255,255,0.6); }
+.form-section-wrap .form-group label { color: #fff; }
+.form-section-wrap .form-group input,
+.form-section-wrap .form-group textarea {
+  background: #161616; border: 1px solid rgba(255,255,255,0.12); color: #fff;
+}
+.form-section-wrap .form-group input::placeholder,
+.form-section-wrap .form-group textarea::placeholder { color: #777; }
+.form-section-wrap .form-group input:focus,
+.form-section-wrap .form-group textarea:focus { background: #1c1c1c; }
+.form-section-wrap .form-note { color: rgba(255,255,255,0.5); }
+.form-section-wrap .info-card { background: #161616; border: 1px solid rgba(255,255,255,0.1); }
+.form-section-wrap .info-card:hover { box-shadow: 0 12px 26px rgba(0,0,0,0.4); }
+.form-section-wrap .info-card-title { color: #fff; border-bottom: 1px solid rgba(255,255,255,0.1); }
+.form-section-wrap .stat-item { border-right: 1px solid rgba(255,255,255,0.1); }
+.form-section-wrap .stat-lbl { color: rgba(255,255,255,0.5); }
+.form-section-wrap .contact-info .label { color: rgba(255,255,255,0.5); }
+.form-section-wrap .contact-info .value { color: #fff; }
+.form-section-wrap .contact-info .value a { color: #fff; }
+.form-section-wrap .promise-list li { color: rgba(255,255,255,0.65); border-bottom: 1px solid rgba(255,255,255,0.08); }
+.form-inner-title { text-align: center; margin-bottom: 48px; }
+.form-inner-title .sec-label { justify-content: center; }
+.form-inner-title .sec-sub { margin: 14px auto 0; text-align: center; }
+
+.main-wrap {
+  display: grid; grid-template-columns: 1fr 340px; gap: 48px;
+  max-width: 1100px; margin: 0 auto;
+}
+
+.form-group { display: flex; flex-direction: column; margin-bottom: 22px; }
+.form-group label {
+  font-family: var(--heading); font-size: 11px; font-weight: 700;
+  letter-spacing: 1.2px; text-transform: uppercase; color: var(--dark); margin-bottom: 8px;
+}
+.form-group input, .form-group textarea {
+  background: var(--off-white); border: 1px solid rgba(0,0,0,0.1); border-radius: 8px;
+  padding: 14px 16px; color: var(--dark); font-family: var(--body); font-size: 14px;
+  outline: none; transition: border-color 0.2s, box-shadow 0.2s; resize: none;
+}
+.form-group input::placeholder, .form-group textarea::placeholder { color: #999; }
+.form-group input:focus, .form-group textarea:focus {
+  border-color: var(--red); box-shadow: 0 0 0 3px rgba(165,13,37,0.12); background: #fff;
+}
+.form-group.error input, .form-group.error textarea { border-color: #d92626; }
+.err-msg { font-size: 11px; color: #d92626; margin-top: 5px; display: none; }
+.form-group.error .err-msg { display: block; }
+
+.submit-btn {
+  width: 100%; padding: 16px; margin-top: 10px;
+  background: var(--red); border: none; border-radius: 8px;
+  color: #fff; font-family: var(--heading); font-weight: 800; font-size: 14px;
+  letter-spacing: 1px; text-transform: uppercase; cursor: pointer;
+  transition: background 0.2s, transform 0.15s, box-shadow .2s;
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+}
+.submit-btn:hover:not(:disabled) { background: var(--red-dark); transform: translateY(-1px); box-shadow: 0 10px 24px rgba(165,13,37,0.3); }
+.submit-btn:active { transform: translateY(0); }
+.submit-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+.submit-btn .arrow { font-size: 18px; transition: transform 0.2s; }
+.submit-btn:hover:not(:disabled) .arrow { transform: translateX(4px); }
+.form-note { text-align: center; font-size: 11px; color: var(--muted); margin-top: 14px; line-height: 1.6; }
+
+/* Sidebar */
+.info-sidebar { display: flex; flex-direction: column; gap: 20px; }
+.info-card {
+  background: var(--off-white); border: 1px solid var(--border);
+  border-radius: 12px; padding: 24px; transition: border-color .25s, transform .25s, box-shadow .25s;
+}
+.info-card:hover { border-color: rgba(165,13,37,0.3); transform: translateY(-3px); box-shadow: 0 12px 26px rgba(0,0,0,0.06); }
+.info-card-title {
+  font-family: var(--heading); font-weight: 700; font-size: 13px; letter-spacing: 0.5px;
+  color: var(--dark); margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid var(--border);
+}
+.stat-row { display: flex; }
+.stat-item { flex: 1; text-align: center; padding: 20px 10px; border-right: 1px solid var(--border); }
+.stat-item:last-child { border-right: none; }
+.stat-num { font-family: var(--heading); font-weight: 800; font-size: 22px; color: var(--red); }
+.stat-lbl { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin-top: 4px; }
+
+.contact-item { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 16px; }
+.contact-item:last-child { margin-bottom: 0; }
+.contact-icon {
+  width: 36px; height: 36px; background: rgba(165,13,37,0.1); border-radius: 8px;
+  display: flex; align-items: center; justify-content: center; font-size: 15px; flex-shrink: 0;
+}
+.contact-info .label { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 2px; }
+.contact-info .value { font-size: 13px; color: var(--dark); font-weight: 600; }
+.contact-info .value a { color: var(--dark); text-decoration: none; transition: color 0.2s; }
+.contact-info .value a:hover { color: var(--red); }
+
+.promise-list { list-style: none; }
+.promise-list li {
+  display: flex; align-items: flex-start; gap: 10px; font-size: 12px; color: var(--muted);
+  line-height: 1.6; padding: 8px 0; border-bottom: 1px solid var(--border);
+}
+.promise-list li:last-child { border-bottom: none; }
+.promise-list li::before { content: '→'; color: var(--red); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+
+/* SUCCESS */
+#success-screen {
+  display: none; position: fixed; inset: 0; z-index: 999;
+  background: rgba(255,255,255,0.98);
+  align-items: center; justify-content: center; flex-direction: column;
+  text-align: center; padding: 40px;
+}
+#success-screen.show { display: flex; }
+.success-icon {
+  width: 80px; height: 80px; background: var(--red); border-radius: 50%;
+  display: flex; align-items: center; justify-content: center; font-size: 36px;
+  margin-bottom: 28px; color: #fff; animation: pop 0.4s cubic-bezier(0.34,1.56,0.64,1);
+}
+@keyframes pop { from { transform: scale(0); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+.success-title { font-family: var(--heading); font-weight: 800; font-size: 32px; margin-bottom: 14px; color: var(--dark); }
+.success-sub { font-size: 15px; color: var(--muted); max-width: 480px; line-height: 1.7; margin-bottom: 28px; }
+.success-detail {
+  background: var(--off-white); border: 1px solid var(--border); border-radius: 12px;
+  padding: 20px 28px; font-size: 13px; color: var(--muted); line-height: 2;
+  margin-bottom: 32px; text-align: left; max-width: 480px; width: 100%;
+}
+.success-detail strong { color: var(--dark); }
+.back-btn {
+  background: transparent; border: 1px solid rgba(0,0,0,0.18); color: var(--dark);
+  padding: 12px 28px; border-radius: 8px; font-family: var(--heading); font-weight: 700;
+  font-size: 13px; cursor: pointer; transition: all 0.2s;
+}
+.back-btn:hover { border-color: var(--red); color: var(--red); }
+
+/* FOOTER */
+.footer-mini {
+  text-align: center; padding: 32px 40px; border-top: 1px solid var(--border);
+  font-size: 12px; color: var(--muted); background: var(--off-white);
+}
+.footer-mini span { color: var(--red); font-weight: 700; }
+.footer-mini a { color: var(--muted); text-decoration: none; margin-left: 6px; }
+.footer-mini a:hover { color: var(--red); }
+
+@media (max-width: 800px) {
+  nav { padding: 0 20px; }
+  .main-wrap { grid-template-columns: 1fr; }
+  .info-sidebar { order: -1; }
+}
+
+@media (max-width: 480px) {
+  .logo img { height: 36px; }
+}
+  </style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav id="navbar" class="fade-up">
+  <a href="index.html" class="logo">
+    <img class="logo-light" src="logo.png" alt="Enovexa Solutions" />
+    <img class="logo-dark" src="logo1.png" alt="Enovexa Solutions" />
+  </a>
+  <a href="index.html" class="nav-portal">← Back to Home</a>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="hero-grid">
+    <div class="hero-left">
+      <span class="hero-tag fade-up">Let's talk</span>
+      <h1 class="fade-up" style="transition-delay:.05s">Build Your Project With <em>Enovexa Solutions</em></h1>
+      <p class="hero-desc fade-up" style="transition-delay:.1s">
+   Share your vision with us and our team will get back to you within 24 hours with a tailored proposal built around your goals. From web and app development to digital marketing, ads, event management, business consulting, and AI-driven solutions — whatever you're building, we're ready to make it real.
+      </p>
+      <div class="hero-btns fade-up" style="transition-delay:.15s">
+        <a href="#start-form" class="btn-primary">Let's Talk <span>→</span></a>
+      </div>
+    </div>
+
+    <div class="hero-visual fade-up" style="transition-delay:.25s" >
+      <div class="hv-main">
+        <img src="https://plus.unsplash.com/premium_photo-1680608979589-e9349ed066d5?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8ZnV0dXJlfGVufDB8fDB8fHww" alt="Enovexa Solutions project team collaborating" loading="lazy" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── SERVICES Q&A ── -->
+<section class="faq-section" id="faq">
+  <div style="text-align:center; max-width:700px; margin:0 auto;">
+    <span class="sec-label fade-up" style="justify-content:center">Common Questions</span>
+    <h2 class="sec-title fade-up" style="text-align:center">What We Can <em>Build For You</em></h2>
+    <p class="sec-sub fade-up" style="margin:14px auto 0;text-align:center">
+      Everything you need to know about working with us — tap any question to learn more.
+    </p>
+  </div>
+
+  <div class="faq-list">
+
+    <div class="faq-item fade-up">
+      <div class="faq-question" onclick="toggleFaq(this)">
+        <span class="faq-question-text">What does your web development service include?</span>
+        <span class="faq-plus">+</span>
+      </div>
+      <div class="faq-answer">
+        <p>We design and build responsive, high-performance websites and web apps — from business sites and landing pages to custom portals with databases, dashboards, and payment integration. Every site is built to load fast, rank well, and scale as your business grows.</p>
+      </div>
+    </div>
+
+    <div class="faq-item fade-up">
+      <div class="faq-question" onclick="toggleFaq(this)">
+        <span class="faq-question-text">What's covered under digital marketing (ads &amp; social media)?</span>
+        <span class="faq-plus">+</span>
+      </div>
+      <div class="faq-answer">
+        <p>We plan and run paid ad campaigns across Google and Meta, manage social media content and posting calendars, and handle SEO and analytics — all aimed at getting your brand in front of the right audience and turning attention into leads.</p>
+      </div>
+    </div>
+
+    <div class="faq-item fade-up">
+      <div class="faq-question" onclick="toggleFaq(this)">
+        <span class="faq-question-text">What kind of software development do you handle?</span>
+        <span class="faq-plus">+</span>
+      </div>
+      <div class="faq-answer">
+        <p>Beyond websites, we build custom software — internal tools, employee/HR dashboards, booking and inventory systems, mobile-friendly web apps, and API integrations tailored to how your business actually operates.</p>
+      </div>
+    </div>
+
+    <div class="faq-item fade-up">
+      <div class="faq-question" onclick="toggleFaq(this)">
+        <span class="faq-question-text">Can you help manage and market an event?</span>
+        <span class="faq-plus">+</span>
+      </div>
+      <div class="faq-answer">
+        <p>Yes — from ticketing pages and registration systems to on-the-ground coordination and promotion, we support corporate events, launches, and public functions end-to-end, including online payment and attendee management.</p>
+      </div>
+    </div>
+
+    <div class="faq-item fade-up">
+      <div class="faq-question" onclick="toggleFaq(this)">
+        <span class="faq-question-text">How soon will I hear back after submitting my project?</span>
+        <span class="faq-plus">+</span>
+      </div>
+      <div class="faq-answer">
+        <p>Our team reviews every brief within a few hours and you'll hear back with a tailored proposal within 24 hours — plus a free 30-minute strategy call to align on scope, with no obligation to proceed.</p>
+      </div>
+    </div>
+
+    <div class="faq-item fade-up">
+      <div class="faq-question" onclick="toggleFaq(this)">
+        <span class="faq-question-text">Do I need to know exactly what I want before reaching out?</span>
+        <span class="faq-plus">+</span>
+      </div>
+      <div class="faq-answer">
+        <p>Not at all. Many clients come to us with just an idea or a problem to solve. Our team will ask the right questions during the free consultation to help shape your project scope and requirements together.</p>
+      </div>
+    </div>
+
+    <div class="faq-item fade-up">
+      <div class="faq-question" onclick="toggleFaq(this)">
+        <span class="faq-question-text">Can you handle multiple services together in one project?</span>
+        <span class="faq-plus">+</span>
+      </div>
+      <div class="faq-answer">
+        <p>Absolutely. Many of our clients combine services — for example, a new website alongside a launch marketing campaign, or an event platform paired with custom software. We coordinate everything under one team.</p>
+      </div>
+    </div>
+
+    <div class="faq-item fade-up">
+      <div class="faq-question" onclick="toggleFaq(this)">
+        <span class="faq-question-text">Do you offer support after the project is delivered?</span>
+        <span class="faq-plus">+</span>
+      </div>
+      <div class="faq-answer">
+        <p>Yes. Every project includes a post-launch support window, and we offer ongoing maintenance plans for updates, monitoring, campaign optimization, and new features as your needs grow.</p>
+      </div>
+    </div>
+
+    <div class="faq-item fade-up">
+      <div class="faq-question" onclick="toggleFaq(this)">
+        <span class="faq-question-text">What information should I include in my project brief?</span>
+        <span class="faq-plus">+</span>
+      </div>
+      <div class="faq-answer">
+        <p>Share your goals, target audience, any timeline or budget expectations, and examples you like if you have them. The more context you give, the more accurate and useful our proposal will be.</p>
+      </div>
+    </div>
+
+
+  </div>
+</section>
+
+<!-- ── START PROJECT FORM (unchanged fields/logic, connected to backend) ── -->
+<section class="form-section-wrap" id="start-form">
+  <div class="form-inner-title">
+    <span class="sec-label" style="justify-content:center">Get In Touch</span>
+    <h2 class="sec-title" style="text-align:center">Let's Build Something <em>Great</em></h2>
+    <p class="sec-sub">Fill in your details below and describe your project. Our team will review and get back to you within 24 hours.</p>
+  </div>
+
+  <div class="main-wrap">
+
+    <!-- FORM -->
+    <div class="form-section fade-up">
+      <div class="form-group" id="fg-name">
+        <label>Full Name *</label>
+        <input type="text" id="clientName" placeholder="John Smith" oninput="clearError('fg-name')" />
+        <span class="err-msg">Please enter your full name.</span>
+      </div>
+
+      <div class="form-group" id="fg-phone">
+        <label>Phone Number *</label>
+        <input type="tel" id="clientPhone" placeholder="+1 234 567 8900" oninput="clearError('fg-phone')" />
+        <span class="err-msg">Please enter a valid phone number.</span>
+      </div>
+
+      <div class="form-group" id="fg-email">
+        <label>Email Address *</label>
+        <input type="email" id="clientEmail" placeholder="you@company.com" oninput="clearError('fg-email')" />
+        <span class="err-msg">Please enter a valid email address.</span>
+      </div>
+
+      <div class="form-group" id="fg-desc">
+        <label>Project Description *</label>
+        <textarea id="projectDesc" rows="7" placeholder="Describe your project — what you want to build, your goals, target audience, key features, and any specific requirements…" oninput="clearError('fg-desc')"></textarea>
+        <span class="err-msg">Please describe your project.</span>
+      </div>
+
+      <button class="submit-btn" id="submitBtn" onclick="handleSubmit()">
+        Send to Enovexa <span class="arrow">→</span>
+      </button>
+      <p class="form-note">🔒 Your information is kept strictly confidential. No spam, ever.</p>
+    </div>
+
+    <!-- SIDEBAR -->
+    <div class="info-sidebar">
+
+      <div class="info-card fade-up" style="padding:0; overflow:hidden;">
+        <div class="stat-row">
+          <div class="stat-item"><div class="stat-num">500+</div><div class="stat-lbl">Projects</div></div>
+          <div class="stat-item"><div class="stat-num">4+</div><div class="stat-lbl">Countries</div></div>
+          <div class="stat-item"><div class="stat-num">98%</div><div class="stat-lbl">Satisfaction</div></div>
+        </div>
+      </div>
+
+      <div class="info-card fade-up">
+        <div class="info-card-title">Reach Us Directly</div>
+        <div class="contact-item">
+          <div class="contact-icon">✉</div>
+          <div class="contact-info">
+            <div class="label">Email</div>
+            <div class="value"><a href="mailto:info@enovexa.com">info@enovexa.com</a></div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">📞</div>
+          <div class="contact-info">
+            <div class="label">India</div>
+            <div class="value"><a href="tel:+918468900600">+91 84689 00600</a></div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">🌐</div>
+          <div class="contact-info">
+            <div class="label">USA</div>
+            <div class="value"><a href="tel:+19042359447">+1 904 235 9447</a></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="info-card fade-up">
+        <div class="info-card-title">What Happens Next</div>
+        <ul class="promise-list">
+          <li>We review your brief within a few hours of receiving it</li>
+          <li>A tailored proposal is crafted specifically for your goals</li>
+          <li>You'll hear back within 24 hours — guaranteed</li>
+          <li>Free 30-minute strategy call to align on scope</li>
+          <li>No obligation — explore the fit at your own pace</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<div class="footer-mini">
+  © 2026 <span>Enovexa Solutions</span> · Innovation, Elevated.
+  <a href="mailto:info@enovexa.com">info@enovexa.com</a>
+</div>
+
+<!-- SUCCESS SCREEN -->
+<div id="success-screen">
+  <div class="success-icon">✓</div>
+  <div class="success-title">Brief Received!</div>
+  <p class="success-sub">Thank you for reaching out to Enovexa Solutions. Our team will review your project and get back to you within <strong>24 hours</strong>.</p>
+  <div class="success-detail" id="successDetail"></div>
+  <button class="back-btn" onclick="resetForm()">← Submit Another Brief</button>
+</div>
+
+<script>
+  // ── SCROLL ANIMATIONS ──
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  // ── NAVBAR: SHADOW + DARK MODE ON SCROLL ──
+  const navEl = document.getElementById('navbar');
+  const startFormEl = document.getElementById('start-form');
+  window.addEventListener('scroll', () => {
+    if (!navEl) return;
+    navEl.style.boxShadow = window.scrollY > 50
+      ? '0 4px 32px rgba(0,0,0,0.1)'
+      : '0 2px 16px rgba(0,0,0,0.08)';
+
+    if (startFormEl) {
+      const navHeight = navEl.offsetHeight;
+      const rect = startFormEl.getBoundingClientRect();
+      const overlapsNav = rect.top <= navHeight && rect.bottom >= 0;
+      navEl.classList.toggle('nav-dark', overlapsNav);
+    }
+  });
+
+  // ── FAQ ACCORDION ──
+  function toggleFaq(questionEl) {
+    const item = questionEl.parentElement;
+    const answer = item.querySelector('.faq-answer');
+    const isOpen = item.classList.contains('open');
+
+    document.querySelectorAll('.faq-item.open').forEach(openItem => {
+      if (openItem !== item) {
+        openItem.classList.remove('open');
+        openItem.querySelector('.faq-answer').style.maxHeight = null;
+      }
+    });
+
+    if (isOpen) {
+      item.classList.remove('open');
+      answer.style.maxHeight = null;
+    } else {
+      item.classList.add('open');
+      answer.style.maxHeight = answer.scrollHeight + 40 + 'px';
+    }
+  }
+
+  // ─── EmailJS Setup ───────────────────────────────────────────────
+  // 1. Sign up free at https://www.emailjs.com
+  // 2. Create an Email Service and note your Service ID
+  // 3. Create an Email Template with variables:
+  //      {{client_name}}, {{client_phone}}, {{client_email}}, {{project_desc}}
+  //    and set the "To Email" in the template to info@enovexa.com
+  // 4. Replace the three placeholders below with your real IDs
+
+  const EMAILJS_PUBLIC_KEY  = 'YOUR_PUBLIC_KEY';   // from EmailJS → Account → API Keys
+  const EMAILJS_SERVICE_ID  = 'YOUR_SERVICE_ID';   // from EmailJS → Email Services
+  const EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID';  // from EmailJS → Email Templates
+
+  emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+
+  // ─── Validation helpers ──────────────────────────────────────────
+  function clearError(groupId) {
+    document.getElementById(groupId).classList.remove('error');
+  }
+
+  function showError(groupId) {
+    document.getElementById(groupId).classList.add('error');
+  }
+
+  function isValidEmail(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }
+  function isValidPhone(v) { return /^[\d\s\+\-\(\)]{7,20}$/.test(v.trim()); }
+
+  // ─── Submit ──────────────────────────────────────────────────────
+  async function handleSubmit() {
+    const name  = document.getElementById('clientName').value.trim();
+    const phone = document.getElementById('clientPhone').value.trim();
+    const email = document.getElementById('clientEmail').value.trim();
+    const desc  = document.getElementById('projectDesc').value.trim();
+
+    let valid = true;
+
+    if (!name)              { showError('fg-name');  valid = false; }
+    if (!isValidPhone(phone)) { showError('fg-phone'); valid = false; }
+    if (!isValidEmail(email)) { showError('fg-email'); valid = false; }
+    if (!desc)              { showError('fg-desc');  valid = false; }
+
+    if (!valid) return;
+
+    const btn = document.getElementById('submitBtn');
+    btn.disabled = true;
+    btn.innerHTML = 'Sending… <span style="font-size:16px;">⏳</span>';
+
+    try {
+      // 1. Save to database (backend)
+      const dbRes = await fetch('api/submit_enquiry.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, phone, email, message: desc })
+      });
+      const dbData = await dbRes.json();
+      if (!dbData.success) {
+        throw new Error(dbData.message || 'Database error');
+      }
+
+      // 2. Send email notification via EmailJS
+      try {
+        await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+          client_name:  name,
+          client_phone: phone,
+          client_email: email,
+          project_desc: desc
+        });
+      } catch (emailErr) {
+        // Email failed but DB save succeeded — still show success
+        console.warn('EmailJS failed (enquiry was saved to DB):', emailErr);
+      }
+
+      document.getElementById('successDetail').innerHTML =
+        `<strong>Name:</strong> ${name}<br>
+         <strong>Phone:</strong> ${phone}<br>
+         <strong>Email:</strong> ${email}<br>
+         <strong>Project:</strong> ${desc.length > 120 ? desc.slice(0, 120) + '…' : desc}`;
+
+      document.getElementById('success-screen').classList.add('show');
+
+    } catch (err) {
+      console.error('Submission error:', err);
+      alert('Something went wrong. Please email us directly at info@enovexa.com');
+    } finally {
+      btn.disabled = false;
+      btn.innerHTML = 'Send to Enovexa <span class="arrow">→</span>';
+    }
+  }
+
+  // ─── Reset ───────────────────────────────────────────────────────
+  function resetForm() {
+    document.getElementById('success-screen').classList.remove('show');
+    ['clientName','clientPhone','clientEmail','projectDesc'].forEach(id => {
+      document.getElementById(id).value = '';
+    });
+    ['fg-name','fg-phone','fg-email','fg-desc'].forEach(id => {
+      document.getElementById(id).classList.remove('error');
+    });
+  }
+</script>
+</body>
+</html>

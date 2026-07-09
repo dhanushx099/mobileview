@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web Projects — 30+ Websites Delivered | Enovexa Solutions</title>
+  <meta name="description" content="Explore 30+ websites built by Enovexa Solutions — e-commerce stores, SaaS platforms, healthcare, education and enterprise sites delivered across India and worldwide." />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+/* ============================================================
+   Enovexa Solutions — Web Projects Showcase Page
+   Matches ecommerce.html theme
+   ============================================================ */
+
+:root {
+  --green: #A50D25;
+  --green-mid: #A50D25;
+  --green-light: #A50D25;
+  --accent: #A50D25;
+  --lime: #F7C5CC;
+  --red: #A50D25;
+  --white: #FFFFFF;
+  --off-white: #F9F9F9;
+  --light-gray: #F2F2F2;
+  --dark: #1A1A1A;
+  --muted: #6B6B6B;
+  --border: rgba(200, 16, 46, 0.13);
+  --card-bg: #FFFFFF;
+  --heading: Arial, sans-serif;
+  --body: Arial, sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: #fff;
+  color: var(--dark);
+  font-family: var(--body);
+  font-size: 16px;
+  line-height: 1.65;
+  overflow-x: hidden;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 900;
+  padding: 0 5vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  height: 72px;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.08);
+  border-bottom: 1.5px solid rgba(200, 16, 46, 0.12);
+}
+.logo { display: flex; align-items: center; text-decoration: none; }
+.logo img { height: 52px; width: auto; object-fit: contain; display: block; }
+.nav-links { display: flex; gap: 6px; list-style: none; }
+.nav-links a {
+  color: #444; text-decoration: none; font-size: .84rem; font-weight: 500;
+  padding: 7px 12px; border-radius: 6px; transition: all .2s;
+}
+.nav-links a:hover { color: var(--red); background: rgba(200, 16, 46, 0.07); }
+.nav-actions { display: flex; gap: 10px; align-items: center; }
+.nav-portal {
+  background: transparent; color: var(--dark); border: 1px solid rgba(0, 0, 0, 0.18);
+  padding: 9px 16px; font-family: var(--body); font-size: .84rem; font-weight: 500;
+  border-radius: 6px; cursor: pointer; transition: all .2s; text-decoration: none; display: inline-block;
+}
+.nav-portal:hover { background: rgba(0, 0, 0, 0.05); }
+.nav-cta {
+  background: var(--red); color: #fff; border: none; padding: 9px 22px;
+  font-family: var(--body); font-size: .84rem; font-weight: 700; border-radius: 6px;
+  cursor: pointer; transition: all .2s; text-decoration: none; display: inline-block;
+}
+.nav-cta:hover { background: var(--green-mid); transform: translateY(-1px); }
+
+/* ── HERO ── */
+.service-hero {
+  background: var(--dark);
+  padding: 140px 5vw 72px;
+  position: relative;
+  overflow: hidden;
+}
+.service-hero::before {
+  content: ''; position: absolute; top: -100px; right: -100px;
+  width: 500px; height: 500px; background: rgba(200, 16, 46, 0.12); border-radius: 50%;
+}
+.service-hero::after {
+  content: ''; position: absolute; bottom: -80px; left: 10%;
+  width: 300px; height: 300px; background: rgba(200, 16, 46, 0.07); border-radius: 50%;
+}
+.hero-tag {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(200, 16, 46, 0.18); border: 1px solid rgba(200, 16, 46, 0.4);
+  padding: 6px 16px; border-radius: 100px; font-size: .72rem; font-weight: 700;
+  color: var(--accent); letter-spacing: 2px; text-transform: uppercase;
+  margin-bottom: 22px; position: relative; z-index: 2;
+}
+.service-hero h1 {
+  font-family: var(--heading); font-size: clamp(1.6rem, 3.5vw, 2.8rem);
+  font-weight: 800; line-height: 1.05; letter-spacing: -2px; color: #fff;
+  margin-bottom: 20px; position: relative; z-index: 2; max-width: 760px;
+}
+.service-hero h1 em { color: var(--accent); font-style: normal; }
+.service-hero .hero-desc {
+  font-size: 0.9rem; color: rgba(255, 255, 255, .65); max-width: 640px;
+  line-height: 1.8; position: relative; z-index: 2; margin-bottom: 0;
+}
+
+/* ── STATS ROW ── */
+.stats-row {
+  background: var(--red); padding: 40px 5vw; display: grid;
+  grid-template-columns: repeat(4, 1fr); gap: 1px;
+}
+.stat-box { padding: 0 28px; text-align: center; border-right: 1px solid rgba(255,255,255,.18); }
+.stat-box:last-child { border-right: none; }
+.stat-box .num {
+  font-family: var(--heading); font-size: 2rem; font-weight: 800;
+  color: #fff; letter-spacing: -1px; line-height: 1;
+}
+.stat-box .num span { color: rgba(255, 255, 255, .65); }
+.stat-box .lbl {
+  font-size: .72rem; color: rgba(255, 255, 255, .6); font-weight: 600;
+  text-transform: uppercase; letter-spacing: 1px; margin-top: 6px;
+}
+
+/* ── SECTION COMMONS ── */
+.sec-label {
+  font-size: .7rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase;
+  color: var(--red); margin-bottom: 12px; display: flex; align-items: center; gap: 8px;
+}
+.sec-label::before { content: ''; width: 24px; height: 2px; background: var(--red); border-radius: 2px; }
+.sec-title {
+  font-family: var(--heading); font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  font-weight: 800; line-height: 1.1; letter-spacing: -1px; color: var(--dark);
+}
+.sec-title em { color: var(--red); font-style: normal; }
+.sec-sub { color: var(--muted); font-size: .88rem; max-width: 580px; margin-top: 14px; line-height: 1.8; }
+
+.fade-up { opacity: 0; transform: translateY(28px); transition: opacity .65s ease, transform .65s ease; }
+.fade-up.visible { opacity: 1; transform: none; }
+
+/* ── FILTER SECTION (heading only) ── */
+.filter-section { padding: 88px 5vw 0; background: #fff; }
+
+/* ── PROJECTS GRID ── */
+.projects-section { padding: 40px 5vw 96px; background: #fff; }
+.projects-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 36px;
+}
+.project-card {
+  background: var(--card-bg); border: 1px solid var(--border); border-radius: 16px;
+  overflow: hidden; transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+.project-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 44px rgba(200, 16, 46, .14);
+  border-color: rgba(200, 16, 46, .3);
+}
+.project-thumb {
+  height: 160px; background: var(--light-gray); position: relative; overflow: hidden;
+  display: flex; align-items: center; justify-content: center;
+}
+.project-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.project-thumb-fallback { font-size: 1.6rem; color: rgba(165,13,37,.35); font-weight: 800; font-family: var(--heading); }
+.project-body { padding: 18px 20px 20px; }
+.project-body h3 {
+  font-family: var(--heading); font-size: 1.02rem; font-weight: 700;
+  color: var(--dark); margin-bottom: 6px;
+}
+.project-body p { font-size: .8rem; color: var(--muted); line-height: 1.6; margin-bottom: 14px; }
+.project-link {
+  display: inline-flex; align-items: center; gap: 6px; color: var(--red);
+  text-decoration: none; font-size: .8rem; font-weight: 700;
+}
+.project-link:hover { text-decoration: underline; }
+
+/* ── CTA STRIP ── */
+.cta-strip {
+  padding: 72px 5vw; text-align: center;
+}
+.cta-strip h2 {
+  font-family: var(--heading); font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 800;
+  color: var(--dark); letter-spacing: -1px; margin-bottom: 14px;
+}
+.cta-strip h2 em { color: var(--red); font-style: normal; }
+.cta-strip p {
+  color: var(--muted); font-size: .9rem; max-width: 480px;
+  margin: 0 auto 30px; line-height: 1.8;
+}
+.btn-primary {
+  background: var(--red); color: #fff; padding: 14px 32px; font-family: var(--body);
+  font-size: .88rem; font-weight: 700; border: none; border-radius: 8px; cursor: pointer;
+  transition: all .2s; text-decoration: none; display: inline-block; position: relative; z-index: 2;
+}
+.btn-primary:hover { background: var(--green-mid); transform: translateY(-2px); box-shadow: 0 10px 30px rgba(200, 16, 46, .3); }
+
+/* ── FOOTER MINI ── */
+.footer-mini {
+  padding: 26px 5vw; text-align: center; background: #fff; border-top: 1px solid var(--border);
+}
+.footer-mini p { font-size: .78rem; color: var(--muted); margin-bottom: 6px; }
+.footer-mini a { font-size: .78rem; color: var(--red); text-decoration: none; font-weight: 600; }
+.footer-mini a:hover { text-decoration: underline; }
+
+@media (max-width: 900px) {
+  .nav-links { display: none; }
+  .stats-row { grid-template-columns: repeat(2, 1fr); gap: 24px 1px; }
+  .stat-box { border-right: none; padding: 0; }
+  .projects-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  .projects-grid { grid-template-columns: 1fr; }
+}
+  </style>
+</head>
+<body>
+
+  <!-- ── NAV ── -->
+  <nav id="navbar">
+    <a href="index.html" class="logo">
+      <img src="logo.png" alt="Enovexa Solutions" />
+    </a>
+    <ul class="nav-links"></ul>
+    <div class="nav-actions">
+      <a href="index.html" class="nav-portal">← Back to Home</a>
+      
+    </div>
+  </nav>
+
+  <!-- ── FILTER + PROJECTS ── -->
+  <section class="filter-section" style="padding-top:132px;">
+    <div style="text-align:center">
+      <span class="sec-label fade-up" style="justify-content:center">Browse By Category</span>
+      <h2 class="sec-title fade-up" style="text-align:center">Every Project,<br><em>Every Industry</em></h2>
+      <p class="sec-sub fade-up" style="margin:14px auto 0;text-align:center">
+        A look at some of the websites we've designed and built for our clients.
+      </p>
+    </div>
+  </section>
+
+  <section class="projects-section">
+    <div class="projects-grid" id="projectsGrid">
+
+      <div class="project-card fade-up">
+        <div class="project-thumb">
+          <div class="project-thumb-fallback"><img src="web1.png" alt=""></div>
+        </div>
+        <div class="project-body">
+          <h3>Eats India</h3>
+          <p>Eats India — A restaurant website for an Australian South Indian eatery (Evandale, SA), featuring an online menu, table reservations, and WhatsApp ordering integration, built with a warm, food-forward design.</p>
+          
+          <a href="https://eatsindia.com.au/" class="project-link">Visit site →</a>
+        </div>
+      </div>
+
+      <div class="project-card fade-up" style="transition-delay:.05s">
+        <div class="project-thumb">
+          <div class="project-thumb-fallback"><img src="web2.png" alt=""></div>
+        </div>
+        <div class="project-body">
+          <h3>Ivara Homes</h3>
+          <p>Ivara Homes — A construction and real estate company website for an Australian home builder, showcasing residential, commercial, and civil construction services with project galleries and client testimonials.</p>
+          
+          <a href="https://ivarahomes.com.au/" class="project-link">Visit site →</a>
+        </div>
+      </div>
+
+      <div class="project-card fade-up" style="transition-delay:.1s">
+        <div class="project-thumb">
+          <div class="project-thumb-fallback"><img src="web3.png" alt=""></div>
+        </div>
+        <div class="project-body">
+          <h3>chillx</h3>
+          <p>ChillX — An event management and entertainment website for an Australian company blending Indian culture with global concerts and festivals, featuring event listings, ticket booking integration, and a gallery showcase.</p>
+          <a href="https://chillx.au/" class="project-link">Visit site →</a>
+        </div>
+      </div>
+
+      <div class="project-card fade-up" style="transition-delay:.15s">
+        <div class="project-thumb">
+          <div class="project-thumb-fallback"><img src="web4.png" alt=""></div>
+        </div>
+        <div class="project-body">
+          <h3>Your Support Circle</h3>
+          <p>Your Support Circle — A registered NDIS provider website for an Australian disability care organization, featuring service listings, eligibility info, team profiles, and a client testimonials section.</p>
+          <a href="https://yoursupportcircle.com.au/" class="project-link">Visit site →</a>
+        </div>
+      </div>
+
+      <div class="project-card fade-up" style="transition-delay:.2s">
+        <div class="project-thumb">
+          <div class="project-thumb-fallback"><img src="web5.png" alt=""></div>
+        </div>
+        <div class="project-body">
+          <h3>MA Architecture</h3>
+          <p>MA Architecture & Designs — An architecture and interior design firm website based in Calicut, Kerala, showcasing residential, commercial, and turnkey construction projects with a portfolio gallery and client testimonials.</p>
+          <a href="https://maarchitecture.in/" class="project-link">Visit site →</a>
+        </div>
+      </div>
+
+      <div class="project-card fade-up" style="transition-delay:.25s">
+        <div class="project-thumb">
+          <div class="project-thumb-fallback"><img src="web6.png" alt=""></div>
+        </div>
+        <div class="project-body">
+          <h3>Impresario Australia</h3>
+          <p>Impresario Australia — An event management website for a national Australian event organiser, showcasing concerts, dance shows, and corporate events with online ticket booking and sponsorship inquiry features.</p>
+          <a href="https://impresarioaustralia.com.au/" class="project-link">Visit site →</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── CTA ── -->
+  <section class="cta-strip" id="contact">
+    <h2>Ready to Build <em>Your</em> Website?</h2>
+    <p>Tell us about your project and we'll get back to you with a tailored proposal within 24 hours.</p>
+    <a href="start-project.html" class="btn-primary">Talk To Us →</a>
+  </section>
+
+  <!-- ── FOOTER MINI ── -->
+  <div class="footer-mini">
+    <p>© 2025 Enovexa Solutions Pvt. Ltd. All rights reserved.</p>
+    <a href="index.html">← Back to Main Site</a>
+  </div>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+    window.addEventListener('scroll', () => {
+      const nav = document.getElementById('navbar');
+      if (nav) {
+        nav.style.boxShadow = window.scrollY > 50
+          ? '0 4px 32px rgba(0,0,0,0.25)'
+          : '0 2px 16px rgba(0,0,0,0.08)';
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Instagram Reels vs. YouTube Shorts: Where Should Your Budget Go? | Enovexa Solutions</title>
+  <meta name="description" content="We compared CPM, engagement and conversion data across both platforms for five client campaigns — here's what won." />
+  <link rel="canonical" href="https://www.enovexa.com/article5.html" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Enovexa Solutions" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Instagram Reels vs. YouTube Shorts: Where Should Your Budget Go?" />
+  <meta property="og:description" content="We compared CPM, engagement and conversion data across both platforms for five client campaigns — here's what won." />
+  <meta property="og:image" content="https://www.enovexa.com/logo.png" />
+  <meta property="og:site_name" content="Enovexa Solutions" />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --green: #A50D25;
+      --green-mid: #A50D25;
+      --accent: #A50D25;
+      --lime: #F7C5CC;
+      --red: #A50D25;
+      --white: #FFFFFF;
+      --off-white: #F9F9F9;
+      --light-gray: #F2F2F2;
+      --dark: #1A1A1A;
+      --muted: #6B6B6B;
+      --border: rgba(200, 16, 46, 0.13);
+      --card-bg: #FFFFFF;
+      --heading: Arial, sans-serif;
+      --body: Arial, sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--off-white);
+      color: var(--dark);
+      font-family: var(--body);
+      font-size: 16px;
+      line-height: 1.65;
+      overflow-x: hidden;
+      width: 100%;
+    }
+
+    img { max-width: 100%; display: block; }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 900;
+      padding: 0 5vw;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #fff;
+      height: 74px;
+      box-shadow: 0 2px 16px rgba(0, 0, 0, 0.08);
+      border-bottom: 1.5px solid #fff;
+    }
+
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      text-decoration: none;
+      height: 100%;
+      padding: 14px 0;
+    }
+
+    .logo-img {
+      height: 130px;
+      width: 200px;
+      max-width: 160px;
+      object-fit: contain;
+      display: block;
+    }
+
+    /* Article figures / images */
+    figure.article-figure {
+      margin: 30px 0;
+    }
+
+    figure.article-figure img {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+    }
+
+    figure.article-figure figcaption {
+      margin-top: 10px;
+      font-size: .8rem;
+      color: var(--muted);
+      text-align: center;
+      line-height: 1.5;
+    }
+
+    .hero-figure img {
+      width: 100%;
+      height: auto;
+      max-height: 420px;
+      object-fit: cover;
+      border-radius: 14px;
+      box-shadow: 0 10px 34px rgba(0,0,0,0.1);
+    }
+
+    .nav-actions { display: flex; align-items: center; gap: 10px; }
+
+    .nav-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--dark);
+      text-decoration: none;
+      font-size: .87rem;
+      font-weight: 600;
+      padding: 9px 18px;
+      border: 1px solid rgba(0,0,0,0.15);
+      border-radius: 6px;
+      transition: all .2s;
+      white-space: nowrap;
+    }
+
+    .nav-back:hover {
+      background: var(--red);
+      border-color: var(--red);
+      color: #fff;
+    }
+
+    .nav-back svg { flex-shrink: 0; }
+
+    /* ── ARTICLE HERO ── */
+    .article-hero {
+      padding: 120px 5vw 50px;
+      background: linear-gradient(180deg, #fff 0%, var(--off-white) 100%);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .article-hero-inner { max-width: 800px; margin: 0 auto; }
+
+    .kicker {
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .kicker span.bar { display: inline-block; width: 24px; height: 2px; background: var(--red); border-radius: 2px; flex-shrink: 0; }
+
+    h1.article-title {
+      font-family: var(--heading);
+      font-size: clamp(1.6rem, 5vw, 2.6rem);
+      font-weight: 800;
+      color: var(--dark);
+      letter-spacing: -1px;
+      line-height: 1.2;
+      margin-bottom: 18px;
+      word-wrap: break-word;
+    }
+
+    .article-sub {
+      font-size: 1rem;
+      color: var(--muted);
+      line-height: 1.75;
+      margin-bottom: 24px;
+    }
+
+    .meta-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-size: .85rem;
+      color: var(--muted);
+      flex-wrap: wrap;
+    }
+
+    .meta-row .dot { width: 4px; height: 4px; border-radius: 50%; background: var(--muted); flex-shrink: 0; }
+
+    /* ── ARTICLE BODY (paragraphs only) ── */
+    .article-body {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 44px 5vw 80px;
+    }
+
+    .article-body h2 {
+      font-family: var(--heading);
+      font-size: clamp(1.2rem, 4vw, 1.5rem);
+      font-weight: 800;
+      color: var(--dark);
+      letter-spacing: -0.5px;
+      margin: 38px 0 14px;
+      line-height: 1.3;
+    }
+
+    .article-body h2 span.num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      background: var(--red);
+      color: #fff;
+      border-radius: 8px;
+      font-size: .8rem;
+      margin-right: 10px;
+      vertical-align: middle;
+      flex-shrink: 0;
+    }
+
+    .article-body p {
+      color: #3d3d3d;
+      font-size: 1rem;
+      line-height: 1.8;
+      margin-bottom: 18px;
+    }
+
+    .article-body strong { color: var(--dark); font-weight: 700; }
+
+    .article-body code {
+      background: var(--light-gray);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: .9em;
+      word-break: break-word;
+    }
+
+    /* Comparison table */
+    .article-body table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 10px 0 26px;
+      font-size: .92rem;
+    }
+
+    .article-body th {
+      text-align: left;
+      background: var(--dark);
+      color: #fff;
+      padding: 12px 14px;
+      font-weight: 700;
+      font-size: .82rem;
+      letter-spacing: .3px;
+    }
+
+    .article-body td {
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--border);
+      color: #3d3d3d;
+    }
+
+    .article-body tr:nth-child(even) td {
+      background: rgba(165, 13, 37, 0.03);
+    }
+
+    .article-body table strong { color: var(--red); }
+
+    /* CTA (replaces footer) */
+    .article-cta {
+      background: #1A1A1A;
+      padding: 56px 5vw;
+      margin-top: 30px;
+    }
+
+    .article-cta-inner {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .article-cta h2 {
+      font-family: var(--heading);
+      font-size: clamp(1.3rem, 4vw, 1.9rem);
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: -0.5px;
+      margin-bottom: 14px;
+      line-height: 1.3;
+    }
+
+    .article-cta p {
+      color: rgba(255,255,255,0.65);
+      font-size: .98rem;
+      line-height: 1.75;
+      max-width: 560px;
+      margin: 0 auto 28px;
+    }
+
+    .cta-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: var(--red);
+      color: #fff;
+      border: none;
+      padding: 13px 26px;
+      font-family: var(--body);
+      font-size: .92rem;
+      font-weight: 700;
+      border-radius: 8px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all .2s;
+      white-space: nowrap;
+    }
+
+    .btn-primary:hover { transform: translateY(-2px); background: #8c0b1f; }
+
+    .mini-footer {
+      text-align: center;
+      padding: 22px 5vw;
+      font-size: .8rem;
+      color: var(--muted);
+      background: #1A1A1A;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .mini-footer span { color: rgba(255,255,255,0.4); }
+
+    /* ── MOBILE ── */
+    @media (max-width: 700px) {
+      nav { padding: 0 5vw; height: 64px; }
+      .logo-img { max-width: 120px; }
+      .nav-back span.label { display: none; }
+      .nav-back { padding: 9px 12px; }
+      .article-hero { padding: 90px 6vw 32px; }
+      .article-body { padding: 28px 6vw 60px; }
+      .article-cta { padding: 44px 6vw; }
+      .cta-buttons { width: 100%; }
+      .btn-primary { justify-content: center; width: 100%; }
+      figure.article-figure { margin: 22px 0; }
+      .hero-figure img { max-height: 220px; }
+      .article-body table { font-size: .82rem; }
+      .article-body th, .article-body td { padding: 9px 8px; }
+    }
+
+    @media (max-width: 380px) {
+      h1.article-title { font-size: 1.45rem; }
+      .article-body p { font-size: .95rem; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <nav id="navbar">
+    <a href="index.html" class="logo">
+      <img class="logo-img" src="logo.png" alt="Enovexa Solutions Logo">
+    </a>
+    <div class="nav-actions">
+      <a href="blog.html" class="nav-back">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M9.5 12L5.5 8l4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span class="label">Back to Blogs</span>
+      </a>
+    </div>
+  </nav>
+
+  <!-- ARTICLE HERO -->
+  <header class="article-hero">
+    <div class="article-hero-inner">
+      <div class="kicker"><span class="bar"></span>Paid Social &amp; Video Ads</div>
+      <h1 class="article-title">Instagram Reels vs. YouTube Shorts: Where Should Your Budget Go?</h1>
+      <p class="article-sub">We compared CPM, engagement and conversion data across both platforms for five client campaigns — here's what won.</p>
+      <div class="meta-row">
+        <span>By Enovexa Solutions</span>
+        <span class="dot"></span>
+        <span>10 min read</span>
+        <span class="dot"></span>
+        <span>Paid Social</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ARTICLE BODY -->
+  <main class="article-body">
+
+    <figure class="article-figure hero-figure">
+      <img src="https://images.unsplash.com/photo-1611262588024-d12430b98920?fm=jpg&q=80&w=1600&auto=format&fit=crop" alt="Phone screen showing short-form vertical video content">
+      <figcaption>Short-form video now drives more paid social budget than any other format — but the two biggest platforms don't perform the same.</figcaption>
+    </figure>
+
+    <p>Every client brief we get this year includes some version of the same question: Reels or Shorts, and where should the next quarter's budget actually go? The honest answer is that it depends on the goal — but "it depends" isn't useful without data, so we pulled the numbers from five client campaigns run in parallel across both platforms over the last two quarters and compared them directly.</p>
+
+    <p>Same creative concepts, same targeting logic, same budget splits — run simultaneously on Instagram Reels and YouTube Shorts so the only real variable was the platform itself. Here's what the data actually showed.</p>
+
+    <h2><span class="num">1</span>The Headline Numbers</h2>
+    <p>Across the five campaigns — spanning an e-commerce apparel brand, a SaaS tool, a local service business, a mobile app, and a DTC skincare line — the aggregated results broke down as follows.</p>
+    <table>
+      <tr><th>Metric</th><th>Instagram Reels</th><th>YouTube Shorts</th></tr>
+      <tr><td>Average CPM</td><td>$9.80</td><td><strong>$7.20</strong></td></tr>
+      <tr><td>Average engagement rate</td><td><strong>4.1%</strong></td><td>2.6%</td></tr>
+      <tr><td>Average click-through rate</td><td><strong>1.3%</strong></td><td>0.9%</td></tr>
+      <tr><td>Average cost per conversion</td><td>$34</td><td><strong>$27</strong></td></tr>
+      <tr><td>Average watch-through rate</td><td>48%</td><td><strong>61%</strong></td></tr>
+    </table>
+    <p>No single platform won on every metric, which is exactly why the "it depends" answer holds up — the data splits cleanly along two different jobs a campaign might be hired to do: engagement and brand response versus efficient, lower-cost conversion.</p>
+
+    <h2><span class="num">2</span>Where Instagram Reels Won</h2>
+    <figure class="article-figure">
+      <img src="https://images.unsplash.com/photo-1611162458324-aae1eb4129a4?fm=jpg&q=80&w=1400&auto=format&fit=crop" alt="Instagram app interface displayed on a smartphone">
+      <figcaption>Reels consistently drove stronger engagement and click-through, especially for visually driven, aspirational products.</figcaption>
+    </figure>
+    <p>Reels came out ahead on every engagement-adjacent metric across all five campaigns, and the pattern held most strongly for the two visually driven brands — apparel and skincare. <strong>Engagement rate outperformed Shorts by roughly 60% relative</strong>, largely driven by comments and shares rather than just likes, suggesting Reels' audience is more inclined to actively interact with content rather than passively scroll past it. <strong>Click-through rate was consistently higher</strong>, particularly on campaigns using a clear on-screen call-to-action overlay in the first three seconds — a format that seemed to translate more naturally on Reels than on Shorts. <strong>Younger demographic skew paid off for brand-building goals</strong>: the two campaigns explicitly targeting an 18–24 audience saw their strongest overall performance on Reels, consistent with Instagram's continued skew toward a slightly younger user base than YouTube's broader demographic spread.</p>
+
+    <h2><span class="num">3</span>Where YouTube Shorts Won</h2>
+    <p>Shorts won decisively on cost efficiency and completion-based metrics, and the advantage was largest for the SaaS and local-service campaigns that needed a full message delivered before asking for a conversion. <strong>CPM ran meaningfully lower across all five campaigns</strong>, likely reflecting less advertiser competition for Shorts inventory relative to Reels at the time of testing — cheaper impressions that still converted made cost-per-conversion the clearest overall winner for Shorts. <strong>Watch-through rate was substantially higher</strong>, with viewers sticking around to the end of the video far more often than on Reels, which matters directly for any campaign whose message or offer lands in the final few seconds. <strong>Retargeting performance was notably stronger</strong>: campaigns layering Shorts views into a retargeting funnel saw a lower cost per second-stage conversion than the equivalent Reels-sourced audience, possibly tied to YouTube's tighter integration with Google's broader ad and search ecosystem.</p>
+
+    <h2><span class="num">4</span>What Actually Explains the Difference</h2>
+    <figure class="article-figure">
+      <img src="https://images.unsplash.com/photo-1611605698323-b1e99cfd37ea?fm=jpg&q=80&w=1400&auto=format&fit=crop" alt="Marketing team analyzing campaign performance charts on a monitor">
+      <figcaption>Platform behavior, not just audience demographics, drives most of the performance gap between Reels and Shorts.</figcaption>
+    </figure>
+    <p>The gap isn't really about one platform being "better" — it comes down to differences in how people actually use each app. <strong>Intent context matters more than most brands account for</strong>: Instagram is primarily a social-browsing context where people expect to interact, while YouTube — even in Shorts form — carries more of a search-and-watch intent, which explains why watch-through and conversion favor Shorts while engagement favors Reels. <strong>Creative pacing needs differ between the two</strong>: content that front-loads its hook performed well on both, but content that built toward a payoff in the final seconds performed disproportionately better on Shorts, where completion rates are higher. <strong>Auction dynamics shift the numbers independently of creative quality</strong> — Reels' higher CPM likely reflects more advertiser demand competing for the same inventory, not necessarily better placement value, which is worth remembering before assuming a CPM difference reflects platform quality rather than simple supply and demand.</p>
+
+    <h2><span class="num">5</span>How to Actually Split Your Budget</h2>
+    <p>Rather than picking one platform, the campaigns that performed best overall used both — deliberately assigned to the job each one does well.</p>
+    <p><strong>Lean toward Reels when</strong> the goal is brand awareness, social proof, or engagement-driven growth; the product is visually driven or aspirational; or the audience skews younger and browsing-focused rather than search-and-watch focused.</p>
+    <p><strong>Lean toward Shorts when</strong> the primary KPI is cost-efficient conversion; the message needs the full video duration to land; or the campaign feeds into a retargeting funnel that benefits from YouTube's broader ecosystem integration.</p>
+    <p><strong>Split budget roughly 60/40 in favor of whichever goal is primary</strong>, and re-evaluate every quarter — auction dynamics and CPMs on both platforms shift often enough that a split which worked six months ago may no longer be optimal today.</p>
+
+    <p><strong>The bottom line:</strong> neither platform is universally better — Reels wins on engagement and click-through, Shorts wins on cost efficiency and completion. The five campaigns that performed best didn't choose one over the other; they matched each platform to the specific job in the funnel it's actually good at.</p>
+
+  </main>
+
+  <!-- CTA (replaces footer) -->
+  <section class="article-cta">
+    <div class="article-cta-inner">
+      <h2>Not sure how to split your short-form video budget?</h2>
+      <p>Our team runs a parallel test across Reels and Shorts using your own creative and audience, then hands you a data-backed split — not a guess.</p>
+      <div class="cta-buttons">
+        <a href="start-project.html" class="btn-primary">Get a Free Media Audit →</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="mini-footer">
+    <span>© 2026 Enovexa Solutions. All rights reserved.</span>
+  </div>
+
+</body>
+
+</html>
